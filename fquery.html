@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funciones jquery</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <style>
+        #nombre{
+            background-color: blueviolet;
+        }
+        #apellido{
+            background-color: orange;
+        }
+        #direccion{
+            background-color: lightblue;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function(){
+            $("#btHtml").click(function(){
+                $("#nombre").html("Juan Carlos");
+                $("#apellido").html("Perez Soto");
+                $("#direccion").html("Alameda #4528");
+            });
+
+            $("#btHide").click(function(){
+                $("#test").hide();
+                $("#nombre").hide();
+                $("#apellido").hide();
+                $("#direccion").hide();
+            });
+
+            $("#btShow").click(function(){
+                $("#test").show();
+                $("#nombre").show();
+                $("#apellido").show();
+                $("#direccion").show();
+            });
+
+            $("#btToggle").click(function(){
+                $("#test").toggle();
+                $("#nombre").toggle();
+                $("#apellido").toggle();
+                $("#direccion").toggle();
+            });
+
+            $("#btslideUp").click(function(){
+                $("#test").slideUp();
+                $("#nombre").slideUp();
+                $("#apellido").slideUp();
+                $("#direccion").slideUp();
+            });
+
+            $("#btslideToggle").click(function(){
+                $("#test").slideToggle();
+                $("#nombre").slideToggle();
+                $("#apellido").slideToggle();
+                $("#direccion").slideToggle();
+            });
+
+            $("#btfadeIn").click(function(){
+                $("#test").fadeIn();
+                $("#nombre").fadeIn();
+                $("#apellido").fadeIn();
+                $("#direccion").fadeIn();
+            });
+
+            $("#btfadeOut").click(function(){
+                $("#test").fadeOut();
+                $("#nombre").fadeOut();
+                $("#apellido").fadeOut();
+                $("#direccion").fadeOut();
+            });
+
+            
+        });
+    </script>
+    
+
+</head>
+<body>
+    <h1>Usuario Registrado</h1>
+
+    <p>Nombre:</p><p id="nombre">n/a</p>
+    <p>Apellido:</p><p id="apellido">n/a</p>
+    <p>Dirección:</p><p id="direccion">n/a</p>
+
+    <button id="btHtml">Html</button>
+    <button id="btHide">Hide</button>
+    <button id="btShow">Show</button>
+    <button id="btToggle">Toggle</button>
+    <button id="btslideUp">slideUp</button>
+    <button id="btslideToggle">slideToggle</button>
+    <button id="btfadeOut">fadeOut</button>
+    <button id="btfadeIn">fadeIn</button>
+    
+</body>
+</html>
