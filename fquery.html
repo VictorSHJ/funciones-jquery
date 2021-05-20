@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Funciones jquery</title>
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
+    <title>Funciones jquery</title>
     <style>
         #nombre{
             background-color: blueviolet;
@@ -18,86 +18,186 @@
         #direccion{
             background-color: lightblue;
         }
+        .selected {
+            color: red;
+            font-style: italic;
+            font-size: xx-large;
+        }
     </style>
 
     <script>
         $(document).ready(function(){
+
+            $("#InputEmail").val("su-email@empresa.cl");    // .val con Asignación 
+
             $("#btHtml").click(function(){
                 $("#nombre").html("Juan Carlos");
                 $("#apellido").html("Perez Soto");
-                $("#direccion").html("Alameda #4528");
+                $("#direccion").html("Alameda #4528");                
             });
 
             $("#btHide").click(function(){
-                $("#test").hide();
                 $("#nombre").hide();
                 $("#apellido").hide();
                 $("#direccion").hide();
             });
 
             $("#btShow").click(function(){
-                $("#test").show();
                 $("#nombre").show();
                 $("#apellido").show();
                 $("#direccion").show();
             });
 
             $("#btToggle").click(function(){
-                $("#test").toggle();
                 $("#nombre").toggle();
                 $("#apellido").toggle();
                 $("#direccion").toggle();
             });
 
             $("#btslideUp").click(function(){
-                $("#test").slideUp();
                 $("#nombre").slideUp();
                 $("#apellido").slideUp();
                 $("#direccion").slideUp();
             });
 
             $("#btslideToggle").click(function(){
-                $("#test").slideToggle();
                 $("#nombre").slideToggle();
                 $("#apellido").slideToggle();
                 $("#direccion").slideToggle();
             });
 
             $("#btfadeIn").click(function(){
-                $("#test").fadeIn();
                 $("#nombre").fadeIn();
                 $("#apellido").fadeIn();
                 $("#direccion").fadeIn();
             });
 
             $("#btfadeOut").click(function(){
-                $("#test").fadeOut();
                 $("#nombre").fadeOut();
                 $("#apellido").fadeOut();
                 $("#direccion").fadeOut();
             });
 
+            $("#btaddClass").click(function(){
+                $("#nombre").addClass("selected");
+                $("#apellido").addClass("selected");
+                $("#direccion").addClass("selected");
+            });
+
+            $("#btremoveClass").click(function(){
+                $("#nombre").removeClass();
+                $("#apellido").removeClass();
+                $("#direccion").removeClass();
+            });
+
+            $("#btbefore").click(function(){
+                $("#titulo").before("<h3>Empresa Chilena</h3>");
+            });
+
+            $("#btafter").click(function(){
+                $("#titulo").after("<h3>Departamento Personal</h3>");
+            });
+
+            $("#btappend").click(function(){
+                $("#titulo").append("<button>>></button>");
+            });
             
+            $("#btprepend").click(function(){
+                $("#titulo").prepend("<button><</button>"); 
+            });
+
+            $("#btval").click(function(){
+                let email = $("#InputEmail").val(); 
+                alert("El e-mail es :" + email);
+            });
+
+            $("#btattr").click(function(){
+                // alert("El Atributo Class es: ",  $("#btHtml").attr("class"));  //Obtengo el valor
+                // alert("El Atributo Class es: ",  $("#InputEmail").attr("placeholder"));  //Obtengo el valor
+                // $("#InputEmail").attr("src", "btn");                               //ASIGNO un nuevo valor.
+                // alert("El nuevo Atributo Class es: ",  $("#InputEmail").attr("class"));  //Obtengo el valor
+                alert("El Attr src es : " +  $("#imagen").attr("src"));  //OBTENGO
+                $("#imagen").attr("src", "mario.png"); //ASIGNO un nuevo valor.
+             });
+
+             $(".btn-dark").click(function(){
+                $(this).hide();
+            });
+                        
         });
     </script>
     
 
 </head>
 <body>
-    <h1>Usuario Registrado</h1>
+    <div class="container">
+        <div class="row mt-5">
+            
+            <h1 id="titulo">Usuario Registrado</h1>
 
-    <p>Nombre:</p><p id="nombre">n/a</p>
-    <p>Apellido:</p><p id="apellido">n/a</p>
-    <p>Dirección:</p><p id="direccion">n/a</p>
+            <p>Nombre:</p><p id="nombre">n/a</p>
+            <p>Apellido:</p><p id="apellido">n/a</p>
+            <p>Dirección:</p><p id="direccion">n/a</p>
+            <p>e-mail</p>
+            <input type="email" placeholder="ingrese su email" class="form-control" id="InputEmail" aria-describedby="emailHelp"> 
 
-    <button id="btHtml">Html</button>
-    <button id="btHide">Hide</button>
-    <button id="btShow">Show</button>
-    <button id="btToggle">Toggle</button>
-    <button id="btslideUp">slideUp</button>
-    <button id="btslideToggle">slideToggle</button>
-    <button id="btfadeOut">fadeOut</button>
-    <button id="btfadeIn">fadeIn</button>
-    
+            <div class="row pt-2">
+                <div class="col">
+                    <button id="btHtml" class="btn btn-primary">Html</button>
+                    <button id="btHide" class="btn btn-primary">Hide</button>
+                    <button id="btShow" class="btn btn-primary">Show</button>
+                    <button id="btToggle" class="btn btn-primary">Toggle</button>
+                </div>
+            </div>
+            <div class="row pt-2">
+                <div class="col">
+                    <button id="btslideUp" class="btn btn-warning">slideUp</button>
+                    <button id="btslideToggle" class="btn btn-warning">slideToggle</button>
+                    <button id="btfadeOut" class="btn btn-warning">fadeOut</button>
+                    <button id="btfadeIn" class="btn btn-warning">fadeIn</button>
+                </div>
+            </div>
+       
+            <div class="row pt-2">
+                <div class="col">
+                    <button id="btaddClass" class="btn btn-success">addClass</button>
+                    <button id="btremoveClass" class="btn btn-success">removeClass</button>
+                </div>
+            </div>
+            <div class="row pt-2">
+                <div class="col">
+                    <button id="btbefore" class="btn btn-info">before</button>
+                    <button id="btafter" class="btn btn-info">after</button>
+                    <button id="btappend" class="btn btn-info">append</button>
+                    <button id="btprepend" class="btn btn-info">prepend</button>
+                </div>
+            </div>
+            <div class="row pt-2">
+                <div class="col">
+                    <button id="btval" class="btn btn-danger">val</button>
+                    <button id="btattr" class="btn btn-danger">attr</button>
+                </div>
+            </div>
+
+
+            <div class="row py-5">Uso de this! con hide
+                <div class="col">
+                    <button id="bt1" class="btn btn-dark">Boton 1</button>
+                    <button id="bt3" class="btn btn-dark">Boton 2</button>
+                    <button id="bt4" class="btn btn-dark">Boton 3</button>
+                    <button id="bt5" class="btn btn-dark">Boton 4</button>
+                    <button id="bt6" class="btn btn-dark">Boton 5</button>
+                </div>
+            </div>
+
+            <div class="row pt-5">
+                <div class="col">
+                    <img id="imagen" src="adventure-cat.png" width="300">
+                </div>
+            
+            
+        </div>
+
+    </div>
 </body>
 </html>
